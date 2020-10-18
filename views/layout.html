@@ -1,0 +1,91 @@
+<!-- BEGIN: LAYOUT -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Brand</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/7c67c69820.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=bc101035f2e41408157117f044609b1b">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kaushan+Script">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body id="page-top">
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top bg-dark" id="mainNav">
+        <div class="container"><a class="navbar-brand" href="#page-top"><img src="assets/img/logo.png" alt="" style="height: 70px;"></a><button data-toggle="collapse" data-target="#navbarResponsive" class="navbar-toggler navbar-toggler-right" type="button" data-toogle="collapse" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="nav navbar-nav ml-auto text-uppercase">
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="home">Mở Đầu</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="learning">Học Tập</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="orientation">Định Hướng</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link js-scroll-trigger" href="community">Cộng Đồng</a></li>
+                </ul>
+            </div>
+        </div>
+        <div id="logIn">
+            <button class="btn btn-primary">Đăng Ký</button>
+            <button class="btn btn-dark" onclick="window.location.assign('login.php')">Đăng Nhập</button>
+        </div>
+        <div id="logOut" style="display: none;">
+            <button class="btn btn-primary" onclick="window.location.assign('logout.php')">Đăng Xuất</button>
+        </div>
+        </nav>
+    
+    <div>{content}</div>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"><span class="copyright">Copyright&nbsp;© Brand 2018</span></div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                        <li class="list-inline-item"><a href="#">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <input type="hidden" name="" id="user_email" value="{logedIn}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="assets/js/script.min.js?h=14fbe564ae668621587e502e401599ff"></script>
+</body>
+<style>
+    a{
+        color:rgb(52, 52, 163)
+    }
+    a:hover{
+        text-decoration: none;
+    }
+</style>
+</html>
+<script>
+    $(document).ready(function(){
+        var logged = $('#user_email').val();
+        if(logged == 1){
+            $('#logIn').css('display','none');
+            $('#logOut').css('display','block');
+        }
+        else{
+            $('#logIn').css('display','block');
+            $('#logOut').css('display','none');
+        }
+    })
+</script>
+<!-- END: LAYOUT -->

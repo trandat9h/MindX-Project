@@ -1,0 +1,100 @@
+<!-- BEGIN: HOME -->
+<header class="masthead" style="background-image:url('assets/img/header-bg.jpg?h=b8466c0919756b37f84bf6f4883412b5');">
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-lead-in"><span>Coding 101!</span></div>
+            <div class="intro-heading text-uppercase"><span>Where a coder Born</span></div><a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" role="button" href="#services">Khám phá</a></div>
+    </div>
+</header>
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase section-heading">Dành Cho Bạn</h2>
+                <h3 class="text-muted section-subheading"></h3>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-book fa-stack-1x fa-inverse"></i></span>
+                <h4 class="section-heading">Học Tập</h4>
+                <p class="text-muted">Luyện tập – Thử Thách – Không ngại khó</p>
+            </div>
+            <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-map-pin fa-stack-1x fa-inverse"></i></span>
+                <h4 class="section-heading">Định Hướng</h4>
+                <p class="text-muted">Tăng tốc việc học lập trình với một con đường được kẻ sẵn.</p>
+            </div>
+            <div class="col-md-4"><span class="fa-stack fa-4x"><i class="fa fa-circle fa-stack-2x text-primary"></i><i class="fa fa-globe fa-stack-1x fa-inverse"></i></span>
+                <h4 class="section-heading">Kết Nối</h4>
+                <p class="text-muted">Một cộng đồng mạnh mẽ luôn sẵn sàng giúp đỡ bạn khi gặp khó khăn trong lập trình.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="portfolio" class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase section-heading">Bài Đăng</h2>
+                <h3 class="section-subheading text-muted"> </h3>
+            </div>
+        </div>
+        <div class="row">
+            <!-- BEGIN: LIST -->
+            <div class="col-sm-6 col-md-4 portfolio-item" >
+                <a class="portfolio-link" data-toggle="modal" href="post&id={LIST.post_id}" style="margin-top: 5%;">
+                    <div class="portfolio-hover"  style="border-radius: 10px;">
+                        <div class="portfolio-hover-content"  style="border-radius: 10px;"><i class="fa fa-plus fa-3x"></i></div>
+                    </div><img style="border-radius: 10px;" class="img-fluid" src="coding101/../admin/{LIST.post_img}">
+                </a>
+                <div class="portfolio-caption">
+                    <h4><a href="post&id={LIST.post_id}">{LIST.post_title}</a></h4>
+                    <p class="text-muted"></p>
+                </div>
+            </div>
+            <!-- END: LIST -->
+        </div>
+    </div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 col-md-3"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/clients/creative-market.jpg?h=bfca663a296efd1d8aaa6a7f2870bc44"></a></div>
+            <div class="col-sm-6 col-md-3"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/clients/designmodo.jpg?h=116a831df4526f53dd7289e89a0476dd"></a></div>
+            <div class="col-sm-6 col-md-3"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/clients/envato.jpg?h=8a0748751b791c95127598b42fe9ab61"></a></div>
+            <div class="col-sm-6 col-md-3"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/clients/themeforest.jpg?h=7c2a20dbf3ae94f3f382e74dc9ef5f19"></a></div>
+        </div>
+    </div>
+</section>
+<section id="contact" style="background-image:url('assets/img/map-image.png?h=dde716a63e31eca254a82a274d4f56c0');">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase section-heading">Contact Us</h2>
+                <h3 class="section-subheading text-muted">.</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <form id="contactForm" name="contactForm" novalidate="novalidate">
+                    <div class="form-row">
+                        <div class="col col-md-6">
+                            <div class="form-group"><input class="form-control" type="text" id="name" placeholder="Your Name *" required=""><small class="form-text text-danger flex-grow-1 help-block lead"></small></div>
+                            <div class="form-group"><input class="form-control" type="email" id="email" placeholder="Your Email *" required=""><small class="form-text text-danger help-block lead"></small></div>
+                            <div class="form-group"><input class="form-control" type="tel" placeholder="Your Phone *" required=""><small class="form-text text-danger help-block lead"></small></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group"><textarea class="form-control" id="message" placeholder="Your Message *" required=""></textarea><small class="form-text text-danger help-block lead"></small></div>
+                        </div>
+                        <div class="col">
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="col-lg-12 text-center">
+                            <div id="success"></div><button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send Message</button></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END: HOME -->

@@ -1,0 +1,110 @@
+
+.body-left h3{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+}
+.body-left ul{
+    list-style-type: none;
+    margin-left: 10px;
+    margin: 0;
+    padding: 0;
+}
+.body-left ul li a{
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 10px ;
+}
+.body-left ul li a:hover{    
+    background: linear-gradient(to right, rgb(74, 86, 197),rgb(84, 79, 148));  
+
+    color: white;
+    border-radius: 10px;
+}
+.navbar-toggler{
+    float: right;
+    outline: none;
+    border:0;
+    background-color: white;
+}
+@media only screen and (max-width: 1192px){
+    .body-left ul li a{
+        width: 100%;
+        text-align: center;
+    }
+    .body-left{
+        width: 100%;
+        height: auto;
+    }
+    .body-right{
+        width: 100%;
+    }
+}
+
+.page{
+    display: inline-block;
+    height: 25px;
+    width: 40px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bolder;
+    margin: 0;
+    border: 1px solid gray;
+    border-radius: 6px;
+    margin-left: 2px;
+}
+#btnPrev{
+    width: 75px;
+    padding:0 8px 0 8px;
+}
+#btnNext{
+    padding:0 8px 0 8px;
+    width: 55px;
+
+}
+.page a{
+    text-decoration: none;
+    color: black;
+    display: block;
+    height: 23px;
+    text-align: center;
+    width: 100%;
+}
+.page a:hover{
+    color:linear-gradient(to right, rgb(74, 86, 197),rgb(84, 79, 148));  
+}
+.btn-success {
+    color: #fff;
+    background-color: #1cc88a;
+    border-color: #1cc88a;
+}
+@media (min-width: 768px){
+    .sidebar .nav-item .nav-link span {
+        font-size: 16px;
+        display: inline;
+    }
+}
+
+#editButton{
+    height: 2.5rem;
+    width: 6rem;
+    margin-top: 1%;
+    border: 1px solid gray;
+    font-weight: 600;            
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+}
+#deleteButton{
+    height: 2.5rem;
+    width: 6rem;
+    margin-top: 1%;
+    border: 1px solid gray;
+    font-weight: 600;            
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    margin-right: 15%;
+    margin-left: 0.5%;
+}

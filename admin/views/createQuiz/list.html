@@ -1,0 +1,260 @@
+<!-- BEGIN: QUIZ -->
+<h2 class="text-primary text-center text-uppercase">QUIZ</h2>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    </head>
+<div class="container-fluid">
+<form method="POST" enctype="multipart/form-data">
+    <div class="mb-5">
+        <input type="button" class="btn btn-success p-2" id="addBtn" data-toggle="modal" data-target="#addproduct" value="Add">
+        <input  type="button" id="deleteBtn" class="btn btn-danger p-2" value="Delete" onclick="deleteThis()">
+    </div>
+    <div id="addproduct" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg p-3">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Add</h3>    
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div> 
+                <div class="modal-body">
+                    <form method="post" class="form-group" name="frmAddProduct" enctype="multipart/form-data">
+                    
+                        <div class="input-group my-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="title">Quiz Question</span>
+                            </div>
+                            <input type="text" class="form-control" id="input-title" aria-describedby="title" name="quiz_question">
+                        </div>
+                        
+                        <div class="input-group my-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="title">Answer A</span>
+                            </div>
+                            <input type="text" class="form-control" id="input-title" aria-describedby="title" name="quiz_A">
+                        </div>
+
+                        <div class="input-group my-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="title">Answer B</span>
+                            </div>
+                            <input type="text" class="form-control" id="input-title" aria-describedby="title" name="quiz_B">
+                        </div>
+
+                        <div class="input-group my-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="title">Answer C</span>
+                            </div>
+                            <input type="text" class="form-control" id="input-title" aria-describedby="title" name="quiz_C">
+                        </div>
+                    
+                        <div class="input-group my-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="title">Answer D</span>
+                            </div>
+                            <input type="text" class="form-control" id="input-title" aria-describedby="title" name="quiz_D">
+                        </div>
+
+                        <div class="input-group my-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="title">Answer Correct</span>
+                            </div>
+                            <input type="text" class="form-control" id="input-title" aria-describedby="title" name="quiz_answer">
+                        </div>
+
+                        
+                    </form>
+                </div>
+                <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <input type="hidden" value="{id}" name="id" id="cat_id">    
+    <input type="hidden" value="{page}" name="page" id="page">
+    <div id="result">
+        <table id="example" class="display" width="100%" data-page-length="25" data-order="[[ 1, &quot;asc&quot; ]]">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th width="20%">Quiz Question</th>
+                    <th>Answer A</th>
+                    <th>Answer B</th>
+                    <th>Answer C</th>
+                    <th>Answer D</th>
+                    <th>Answer Correct</th>
+                    <th class="abc">Edit</th>
+                    <th class="abc">Delete</th>
+                    <th class="abc">Check All <input onclick="checkAll(this)"  type="checkbox"></th>
+                    
+                </tr>
+            </thead>
+                
+                <tbody>
+                <!-- BEGIN: LIST -->
+                <tr>
+                    <td>{LIST.quiz_id}</td>
+                    <td>{LIST.quiz_question}</td>
+                    <td>{LIST.quiz_A}</td>
+                    <td>{LIST.quiz_B}</td>
+                    <td>{LIST.quiz_C}</td>
+                    <td>{LIST.quiz_D}</td>
+                    <td>{LIST.quiz_answer}</td>
+                    <td class="abc"> <button type="button" data-id='{LIST.quiz_id}' class="tabledit-edit-button btnEdit btn btn-sm btn-info "><i class="fas fa-edit"></i></button></td>
+                    <td class="abc"><button data-id='{LIST.quiz_id}' type="button" class="btn btn-sm btn-danger btnDelete" ><i class="fas fa-trash"></i></button></td>
+                    <td class="abc"><input value="{LIST.quiz_id}" type="checkbox" name="box"></td>
+                    
+                </tr>
+                <!-- END: LIST -->
+                </tbody>
+            
+        </table>
+        <input type="hidden" id="ok" value={role_id}>
+    </div>
+</form>
+</div>
+<script src="https://cdn.ckeditor.com/ckeditor5/19.1.1/classic/ckeditor.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<!-- Ajax change status -->
+<script>
+    function setChange(aId){ 
+        $.ajax({
+            url:'../../viewAboutUs/update/'
+            ,method:'POST'
+            ,data:{a_id:aId}
+            ,dataType:'json'
+            ,success:function(msg){
+                $("#setChange"+aId).text(msg.post_active);
+            }
+            ,error:function(){
+                alert("Can't change");
+            }
+        })
+    }
+</script>
+<script>
+    var a = document.getElementById('ok');
+    $(document).ready(function(){
+        $('#example').DataTable();
+            if(a.value==3){
+                $('.abc').hide();
+            }
+        goedit();
+        godelete();
+        checkAll();
+    });
+    function goedit(){
+        $(document).on('click','.btnEdit',function(){
+            var id = $(this).attr('data-id');
+            window.location.assign("../../createQuiz/edit&id="+id+"/");     
+        })
+    };
+    function godelete(){
+        $(document).on('click','.btnDelete',function(){
+            var id = $(this).attr('data-id');
+            var y = confirm("Are you sure want to delete this post?");
+            if(y==false) return 0;
+            window.location.assign("../../createQuiz/delete&id="+id+"/"); 
+        })
+    };
+    function checkAll(source){
+        let checkbox = document.getElementsByName('box');
+        for(let i=0; i<checkbox.length; i++){
+            checkbox[i].checked = source.checked;
+        }
+    };
+    function deleteThis(){
+        let checkbox = document.getElementsByName('box');
+        var a = [];
+        var flag = 0;
+        for(let i=0; i<checkbox.length; i++){
+            if(checkbox[i].checked){
+                a.push(checkbox[i].value);
+                flag = 1;
+            }
+        }
+        if(flag ==1){
+            var ask = confirm('You will delete '+ a.length +' quizzes(s)? Are you sure want to continue?');
+            if(ask) window.location.assign("../../createQuiz/delete&id="+a+"/");
+        }
+    }
+
+</script>
+
+<style>
+    table{
+        width: 80%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        margin-top: 1%;
+    }
+    table tr{
+        height: 40px;
+    }
+    table tr th{
+        text-align: center;
+        color: black;
+    }
+    table tr td{
+        text-align: center;
+        color: black;
+    }
+    table tr td a{
+        text-decoration: none;
+    }
+    table img{
+        height:  100px;
+        border-radius: 5%;
+    }
+    h5{
+        text-align: center;
+    }
+    form table{
+        overflow: auto;
+    }
+    #editproduct{
+        margin: auto;
+        background: white;
+        width: 45%;
+        height: 80%;
+    }
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+        border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    }
+    .search-bar{
+        position: fixed;
+    }
+    .search-bar input{
+        border-radius: 10px;
+        padding-left: 10px;
+        border: 1px solid gray;
+        height: 30px;
+        outline: none;
+
+    }
+    .not-active{
+        color: black;
+    }
+
+</style>
+</html>
+
+
+
+<!-- END: QUIZ -->

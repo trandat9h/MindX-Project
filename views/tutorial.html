@@ -1,0 +1,99 @@
+<!-- BEGIN: TUTOR -->
+<section id="services">
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-lg-12 text-center">
+            <h2 class="text-uppercase section-heading ">{TUTOR.post_title}</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mt-3 justify-align-center col-md-8">{TUTOR.post_video}</div>
+        <div class="form-group col-md-4">
+            <div class="input-group-text">Hãy note vào đây nhé ^^ </div>
+            <textarea class="form-control" rows="20" id="comment"></textarea>
+          </div>
+    </div>
+    <input type="button" id="answer" class="btn btn-block btn-lg btn-dark" onclick="showQues()" value="Start the Quiz">
+    <form action="" method="post">
+    <div id="question" style="display: none;" >
+        <!-- BEGIN: QUIZ -->
+        <div class="input-group-text mt-3 ">{count}. {QUIZ.quiz_question} </div>
+        <div class="form-check" class="p-2"  id="A{QUIZ.quiz_id}">
+            <input class="form-check-input" type="radio" value="A{QUIZ.quiz_id}"  name="quiz{QUIZ.quiz_id}" >
+            <label class="form-check-label" for="A">
+                A. {QUIZ.quiz_A}
+            </label>
+        </div>
+        <div class="form-check"  id="B{QUIZ.quiz_id}">
+            <input class="form-check-input" type="radio" value="B{QUIZ.quiz_id}" name="quiz{QUIZ.quiz_id}">
+            <label class="form-check-label" for="B">
+                B. {QUIZ.quiz_B}
+            </label>
+        </div>
+        <div class="form-check"  id="C{QUIZ.quiz_id}">
+            <input class="form-check-input" type="radio" value="C{QUIZ.quiz_id}"  name="quiz{QUIZ.quiz_id}">
+            <label class="form-check-label" for="C">
+                C. {QUIZ.quiz_C}
+            </label>
+        </div>
+        <div class="form-check" id="D{QUIZ.quiz_id}">
+            <input class="form-check-input" type="radio" value="D{QUIZ.quiz_id}" name="quiz{QUIZ.quiz_id}" >
+            <label class="form-check-label" for="D">
+                D. {QUIZ.quiz_D}
+            </label>
+        </div>
+        <input type="hidden" name="" id="id{QUIZ.quiz_id}" value="{QUIZ.quiz_answer}">
+        <!-- END: QUIZ -->
+        <div class="progress mt-3">
+            <div class="progress-bar progress-bar-striped" style='width: {percent}%'></div>
+        </div>
+        <p>You scored {percent}%</p>
+
+
+        <input type="submit" class="btn btn-dark btn-md mt-3" value="Submit">
+        <input type="hidden" value="{checked}" id="checkSubmit">
+        <input type="hidden" value="{checkCorrectString}" id="checkCorrectString">    
+        <input type="hidden" value="{arrStr}" id="arrStr">
+    </form>
+    </div>
+</div>
+</section>
+<style>
+    .bread{
+        font-size: 14px;
+    }
+    .correctAns{
+        background-color: rgb(151, 240, 18);
+    }
+    .wrongAns{
+        background-color: rgb(218, 85, 85);
+    }
+</style>
+<script>
+    function showQues(){
+        $('#question').css('display','block');
+    }
+    function checkSubmit(){
+        let check = $('#checkSubmit').val();
+        let checkStr = $('#checkCorrectString').val();
+        let value;
+        if(check == 'checked'){
+            let str = $('#arrStr').val();
+            let newArr = str.split(",");
+            for(let i = 0; i < newArr.length - 1; i++){
+                $('#'+newArr[i]).addClass('wrongAns');
+            }
+            $('#answer').val('Here are the answers');
+            $('#answer').css('background-color','blue');
+            $('#question').css('display','block');
+            for(let i = 1; i <= checkStr.length; i++){
+                value = $('#id'+i).val();
+                $('#'+value).removeClass('wrongAns').addClass('correctAns');
+            }
+        }
+    }
+    $( document ).ready(function() {
+        checkSubmit();
+    });
+</script>
+<!-- END: TUTOR -->

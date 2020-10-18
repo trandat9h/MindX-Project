@@ -1,0 +1,38 @@
+
+Options -Indexes
+IndexIgnore *
+RewriteEngine On
+
+#RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^admin/([a-zA-Z]+)/([a-zA-Z]+)/$ admin/?m=$1&a=$2
+RewriteRule ^([a-zA-Z]+)/([a-zA-Z]+)$ ?m=$1&a=$2
+RewriteRule ^([a-zA-Z]+)/([a-zA-Z]+)&id=([0-9\,]+)$ ?m=$1&a=$2&id=$3
+RewriteRule ^([a-zA-Z]+)&id=([a-zA-Z0-9\,\_]+)$ ?m=$1&id=$2
+RewriteRule ^([a-zA-Z]+)&id=([a-zA-Z0-9\,\_]+)&page=([a-zA-Z0-9\,\_]+)$ ?m=$1&id=$2&page=$3
+RewriteRule ^([a-zA-Z]+)/([a-zA-Z]+)&view=([a-zA-Z]+)$ ?m=$1&a=$2&view=$3
+RewriteRule ^([a-zA-Z]+)&view=([a-zA-Z]+)$ ?m=$1&view=$2
+RewriteRule ^([a-zA-Z]+)/([a-zA-Z]+)&id=([0-9\,]+)&pro_cusquantity=([0-9\,]+)$ ?m=$1&a=$2&id=$3&pro_cusquantity=$4
+RewriteRule ^([a-zA-Z]+)$ ?m=$1
+
+RewriteRule ^admin/([a-zA-Z]+)/([a-zA-Z]+)&cat_id=($||[0-9]+)/$ admin/?m=$1&a=$2&cat_id=$3
+RewriteRule ^admin/([a-zA-Z]+)/([a-zA-Z]+)&city_id=($||[0-9]+)/$ admin/?m=$1&a=$2&city_id=$3
+
+RewriteRule ^admin/([a-zA-Z]+)/([a-zA-Z]+)&id=([0-9\,]+)/$ admin/?m=$1&a=$2&id=$3
+RewriteRule ^admin/([a-zA-Z]+)/([a-zA-Z]+)&id=([0-9]+)$ admin/?m=$1&a=$2&id=$3
+
+RewriteRule ^admin/([a-zA-Z]+)/([a-zA-Z]+)&id=([0-9]+)&cat_name=([a-zA-Z0-9]+)/$ admin/?m=$1&a=$2&id=$3&cat_name=$4
+RewriteRule ^admin/([a-zA-Z]+)/([a-zA-Z]+)&id=([0-9]+)&city_name=([a-zA-Z0-9]+)/$ admin/?m=$1&a=$2&id=$3&city_name=$4
+
+RewriteRule ^admin/([a-zA-Z]+)/([a-zA-Z]+)&cat_id=([0-9]+)&id=($||[0-9]+)/$ admin/?m=$1&a=$2&cat_id=$3&id=$4
+RewriteRule ^admin/([a-zA-Z]+)/([a-zA-Z]+)&city_id=([0-9]+)&id=($||[0-9]+)/$ admin/?m=$1&a=$2&city_id=$3&id=$4
+
+
+RewriteRule ^admin/([a-zA-Z]+)/([a-zA-Z]+)&cat_id=([0-9]+)&page=([0-9]+)/$ admin/?m=$1&a=$2&cat_id=$3&page=$4
+RewriteRule ^admin/([a-zA-Z]+)/([a-zA-Z]+)&cat_id=([0-9]+)&page=([0-9]+)&keyword=($||[a-zA-Z0-9]+)/$ admin/?m=$1&a=$2&cat_id=$3&page=$4&keyword=$5
+RewriteRule ^admin/([a-zA-Z]+)/([a-zA-Z]+)&city_id=([0-9]+)&page=([0-9]+)&keyword=($||[a-zA-Z0-9]+)/$ admin/?m=$1&a=$2&city_id=$3&page=$4&keyword=$5
+
+RewriteRule ^admin/login/$ admin/login.php
+
+RewriteRule ^login$ login.php
+RewriteRule ^([a-zA-Z]+)/([a-zA-Z]+)/$ ?m=$1&a=$2

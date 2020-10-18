@@ -1,0 +1,36 @@
+<!-- BEGIN: COMM -->
+<section id="services">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="text-uppercase section-heading">Tất cả câu hỏi</h2>
+                <button class="btn btn-primary" onclick="window.location.assign('askquestion')">Đặt câu hỏi tại đây</button>
+            </div>
+        </div>
+        <div class="row">
+            <!-- BEGIN: LIST -->
+            <div class="col-lg-12 m-2 p-2 pl-3" style="border: 1px solid rgb(204, 200, 200)">
+                <a href="discuss&id={LIST.ques_id}" style="font-size: 20px;" class="title-short">{LIST.ques_title}</a>
+                <div class="text-short  pl-3">{LIST.ques_text}</div>
+                <a href="discuss&id={LIST.ques_id}" class="pt-2"><i class="fas fa-comment"></i> Thảo luận</a>
+                <p class="float-right" style="font-size: 13px;"  class="pt-2">Tác giả: {LIST.user_email}</p>
+            </div>
+            <!-- END: LIST -->
+        </div>
+    </div>
+</section>
+<style>
+    .title-short{
+        display: -webkit-box;
+        -webkit-line-clamp:2;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+    }
+    .text-short{
+        display: -webkit-box;
+        -webkit-line-clamp:4;
+        -webkit-box-orient: vertical;  
+        overflow: hidden;
+    }
+</style>
+<!-- END: COMM -->
